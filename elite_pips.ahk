@@ -26,14 +26,15 @@ Joy9::                    ; L-Stick down
 TOGGLE := !TOGGLE
 Return
 
-Joy2::                    ; B-Button down
-BoostInterval()
-Return
+;Joy2::                    ; B-Button down
+;if TOGGLE Return
+;BoostInterval()
+;Return
 
 Shields()
 {
     Send, {Down}
-    Sleep, 10
+    Sleep, 20
     Send, {Up}
     Sleep, 10
     Send, {Up}
@@ -52,7 +53,7 @@ Shields()
 Weapons()
 {
     Send, {Down}
-    Sleep, 10
+    Sleep, 20
     Send, {Up}
     Sleep, 10
     Send, {Up}
@@ -71,7 +72,7 @@ Weapons()
 Engine()
 {
     Send, {Down}
-    Sleep, 10
+    Sleep, 20
     Send, {Up}
     Sleep, 10
     Send, {Up}
@@ -86,13 +87,11 @@ Engine()
 BoostInterval(){
   Global                    ; uses BoostAvaiable, which is declared global
 	if(BoostAvaiable){
-    BoostAvaiable := false
-    Sleep, 1000             ; Wait time for the boost to trigger
-    Engine()
-    Sleep, 2500
-    Shields()               ; Boost shields after boosting
-    Sleep, 2000             ; Boost refraction time, needs some fine tuning
-    BoostAvaiable := true
+            BoostAvaiable := false
+            ;Sleep, 1000             ; Wait time for the boost to trigger
+            ;Engine()
+            ;Sleep, 4500		    ; Boost refraction time, needs some fine tuning
+            ;BoostAvaiable := true
 	}
   Return
 }
